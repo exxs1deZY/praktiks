@@ -1,7 +1,7 @@
 import requests
 
 def get_github_user(username):
-    headers = {"Authorization": "Bearer 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"}
+    headers = {"Authorization": "Bearer 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"}
 
     url = f"https://api.github.com/users/{username}"
 
