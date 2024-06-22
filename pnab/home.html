@@ -1,0 +1,36 @@
+{% extends 'base.html'%}
+{% block content %}
+
+<head>
+    <title>Home</title>
+    <style>
+        .statement-container{
+
+        }
+        .statement{
+            
+        }
+        .statement img{
+            
+        }
+    </style>
+</head>
+<body>
+    <h1>Ваши заявления</h1>
+    <div class="statement-container">
+        {% for el in statements %}
+        <div class="statement">
+            <h1>{{el.name}}</h1>
+            <p>Описание{{el.text}}</p>
+            <p>Номер{{el.number_car}}</p>
+            {% if el.image%}
+                <img src="{{el.image.url}}">
+            {% else %}
+                <p>Фото нет</p>
+            {% endif %}
+            <p>{{el.otvet}}</p>
+        </div>
+        {%endfor%}
+    </div>
+</body>
+{% endblock %}

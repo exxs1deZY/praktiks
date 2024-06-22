@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth</title>
+</head>
+<body>
+    <form method='POST'>
+        {%csrf_token%}
+        <h1>Регистрация</h1>
+        <input name="email" type="text" placeholder="email" required>
+        <input name="password" type="text" placeholder="password" required >
+        <button type="submit">Войти</button>
+    </form>
+    {% if error %}
+    <p>{{error}}</p>
+    {% endif %}
+    <a href = "{% url 'reg'%}">Регистрация</a>
+</body>
+</html>
+

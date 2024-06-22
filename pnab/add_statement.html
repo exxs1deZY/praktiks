@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<head>
+    <style>
+    </style>
+</head>
+<body>
+    <form method='POST' enctype="multipart/form-data">
+        {% csrf_token %}
+        <h1>Создание заявления</h1>
+        <input name="name" placeholder="name" required>
+        <input name="text" placeholder="text" required>
+        <input name="number_car" placeholder="number_car" required>
+        <input name="image" type="file" placeholder="image" >
+        <button type="submit">Добавить</button>
+    </form>
+</body>
+{% endblock %}
