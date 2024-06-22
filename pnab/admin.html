@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+</head>
+<body>
+    {% for el in statements %}
+    <h1>{{el.user}}</h1>
+    <p>Написано:{{el.user}}</p>
+    <p>{{el.otvet}}</p>
+
+    <form action="{% url 'otvet' statement_id=el.id %}" method="post">
+        {%csrf_token%}
+        <label for='otvet'>Статус:</label>
+        <select name="otvet" id="otvet">
+            <option name="Подтверждён" {% if el.otvet == 'Подтверждён'%} selected{% endif %}>Подтверждён</option>
+            <option name="Новый" {% if el.otvet == 'Новый'%} selected{% endif %}>Новый</option>
+            <option name="Отклонён" {% if el.otvet == 'Отклонён'%} selected{% endif %}>Отклонён</option>
+        </select>
+        <button type="submit">Отправить</button>
+    </form>
+        <form action="{% url 'delete' statement_id=el.id  %}" method="post">
+            {%csrf_token%}
+            <button>Удалить</button>
+        </form>
+        {% endfor %}
+    </body>
+</html>
+{% endblock %}
